@@ -113,14 +113,6 @@ class User extends Authenticatable
             ->withPivot('accepted');
     }
 
-    // public function booksOfFriends()
-    // {
-    //     return $this->hasManyDeepFromRelations($this->acceptedFriendsOfMine(), (new User())->books())
-    //         ->withIntermediate(BookUser::class)
-    //         ->where('friends.accepted', true)
-    //         ->orderBy('__book_user__updated_at', 'desc');
-    // }
-
     public function friends()
     {
         return $this->mergedRelationWithModel(User::class, 'friends_view');
